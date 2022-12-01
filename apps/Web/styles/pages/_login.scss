@@ -1,0 +1,86 @@
+@use '../variable' as *;
+
+.login-wrapper {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin-block-start: 2rem;
+}
+
+.login-container {
+  display: grid;
+}
+
+.login-banner {
+  display: none;
+}
+
+.login-group-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.login-form-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.login-form-field {
+  display: grid;
+  grid-auto-flow: row;
+  padding-block-start: 0.5rem;
+  padding-inline: 0.5rem;
+  border: $border-size solid $border-color;
+  border-radius: $border-radius;
+
+  &__label {
+    font-size: $small-text;
+    color: $grayish-color;
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    padding-block: 0.7rem;
+  }
+}
+
+.login-helper-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-helper-forgot {
+  font-size: $small-text;
+  text-decoration: none;
+  color: $danger-color;
+}
+
+.login-form-button {
+  padding-block: 1.2rem;
+  border: none;
+  border-radius: $border-radius;
+  outline: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: white;
+  background-color: $primary-color;
+  cursor: pointer;
+}
+
+@media (min-width: 920px) {
+  .login-container {
+    grid-auto-flow: column;
+    gap: 2.5rem;
+    place-items: center;
+    padding: 2rem;
+    border: $border-size solid $border-color;
+    border-radius: $border-radius;
+  }
+
+  .login-banner {
+    display: block;
+  }
+}
