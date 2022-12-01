@@ -27,7 +27,7 @@ export default function PrimaryHeader() {
         />
       </div>
       <div className="timespan">
-        <span>{date}</span>
+        <span className="bold">{date}</span>
         {` `}
         <span>{time}</span>
       </div>

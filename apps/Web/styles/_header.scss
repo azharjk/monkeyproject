@@ -1,7 +1,10 @@
+@use "variable" as *;
+
 .primary-header {
   display: grid;
   place-items: center;
   padding-block: 1.3rem;
+  background-color: $primary-color;
 }
 
 .timespan {
