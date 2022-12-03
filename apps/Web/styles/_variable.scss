@@ -1,9 +1,15 @@
 $primary-color: #f29e0f;
 $grayish-color: #888585;
 $danger-color: red;
+$active-color: #3176BB;
+
+$magic-shadow-1: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;;
 
 $border-size: 1px;
 $border-color: black;
 $border-radius: 4px;
 
 $small-text: 1.2rem;
+
+$fast-timing: 50ms;
+$transition-function: ease-in;

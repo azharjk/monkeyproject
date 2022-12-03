@@ -33,10 +33,18 @@
   padding-inline: 0.5rem;
   border: $border-size solid $border-color;
   border-radius: $border-radius;
+  transition: border-color $fast-timing $transition-function, box-shadow $fast-timing $transition-function;
+  cursor: text;
+
+  &:focus-within {
+    border-color: $active-color;
+    box-shadow: $magic-shadow-1;
+  }
 
   &__label {
     font-size: $small-text;
     color: $grayish-color;
+    cursor: text;
   }
 
   &__input {
@@ -56,6 +64,10 @@
   font-size: $small-text;
   text-decoration: none;
   color: $danger-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .login-form-button {
@@ -68,6 +80,11 @@
   color: white;
   background-color: $primary-color;
   cursor: pointer;
+
+  &:hover {
+    box-shadow: $magic-shadow-1;
+    transition: box-shadow $fast-timing $transition-function;
+  }
 }
 
 @media (min-width: 920px) {
