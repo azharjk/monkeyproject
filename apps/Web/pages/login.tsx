@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import PrimaryHeader from '../components/PrimaryHeader';
 import Project from '../meta/project';
 
 export default function LoginPage() {
@@ -10,7 +9,6 @@ export default function LoginPage() {
       <Head>
         <title>{`Login | ${Project.Name}`}</title>
       </Head>
-      <PrimaryHeader />
       <div className="login-wrapper">
         <div className="login-container">
           <div className="login-banner">
