@@ -1,0 +1,62 @@
+@use 'variable' as *;
+
+.nav {
+  display: grid;
+  place-items: center;
+  padding-block: 0.8rem;
+  padding-inline: 1.3rem;
+  background-color: $nav-color;
+}
+
+.nav-list {
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  place-content: end space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-link {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  color: $white-color;
+}
+
+.nav-setting-list {
+  display: none;
+  height: 100%;
+}
+
+.nav-setting-link {
+  color: $white-color;
+  text-decoration: none;
+}
+
+@media (min-width: 630px) {
+  .nav-setting-button {
+    display: none;
+  }
+
+  .nav-setting-list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (min-width: 920px) {
+  .nav {
+    padding-inline: $padding-fit-content;
+  }
+}

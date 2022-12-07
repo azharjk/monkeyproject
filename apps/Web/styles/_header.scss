@@ -20,7 +20,7 @@
   .primary-header {
     grid-auto-flow: column;
     place-content: center space-between;
-    padding-inline: 3rem;
+    padding-inline: $padding-fit-content;
   }
 
   .timespan {
