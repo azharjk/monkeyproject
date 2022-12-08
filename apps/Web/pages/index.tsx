@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Navbar from '../components/Navbar';
+import DrawerWithNavbar from '../components/DrawerWithNavbar';
 import Project from '../meta/project';
 
 export default function RootPage() {
@@ -8,8 +8,9 @@ export default function RootPage() {
       <Head>
         <title>{`Home | ${Project.Name}`}</title>
       </Head>
-      <Navbar />
-      <h1>Hello, world</h1>
+      <DrawerWithNavbar>
+        <h1>Hello</h1>
+      </DrawerWithNavbar>
     </>
   );
 }

@@ -1,0 +1,20 @@
+.drawer-content-list {
+  padding: 1rem;
+  margin: 0;
+  list-style: none;
+
+  &__item {
+    padding: .3rem;
+  }
+
+  &__item-title {
+    display: block;
+    margin-block-end: 1rem;
+  }
+}
+
+.drawer-content-subcontent-list {
+  padding-inline-start: 1rem;
+  margin: 0;
+  list-style: none;
+}

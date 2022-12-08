@@ -1,11 +1,15 @@
 import Link from 'next/link';
 
-export default function Navbar() {
+interface NavbarProps {
+  onMenuClick: () => void;
+}
+
+export default function Navbar(props: NavbarProps) {
   return (
     <nav className="nav">
       <ul className="nav-list">
         <li>
-          <button className="nav-link">
+          <button className="nav-link" onClick={props.onMenuClick}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
