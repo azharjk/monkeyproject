@@ -5,7 +5,7 @@ export default function MasterLayout(props: React.PropsWithChildren) {
   return (
     <>
       <PrimaryHeader />
-      <main>{props.children}</main>
+      <main className="main-container">{props.children}</main>
     </>
   );
 }

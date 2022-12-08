@@ -10,3 +10,13 @@ body {
   margin: 0;
   font-size: 1.6rem;
 }
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  overflow-y: hidden; // NOTE: This isnt really fit
+}
+
+.main-container {
+  height: 100%;
+}
