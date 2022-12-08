@@ -1,20 +1,8 @@
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { formatDate, formatTime } from '../utils';
+import PrimaryHeaderImpl from './PrimaryHeaderImpl';
 
 export default function PrimaryHeader() {
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const d = new Date();
-      setDate(formatDate(d));
-      setTime(formatTime(d));
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const dateTime = PrimaryHeaderImpl.useDateTime();
 
   return (
     <header className="primary-header">
@@ -27,9 +15,9 @@ export default function PrimaryHeader() {
         />
       </div>
       <div className="timespan">
-        <span className="bold">{date}</span>
+        <span className="bold">{dateTime.date}</span>
         {` `}
-        <span>{time}</span>
+        <span>{dateTime.time}</span>
       </div>
     </header>
   );
