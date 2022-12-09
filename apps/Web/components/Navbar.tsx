@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRef } from 'react';
+import NavbarImpl from './NavbarImpl';
 
 interface NavbarProps {
   onMenuClick: () => void;
@@ -9,8 +10,7 @@ export default function Navbar(props: NavbarProps) {
   const settingDropdownRef = useRef<HTMLUListElement>(null);
 
   const onSettingClick = () => {
-    if (settingDropdownRef.current)
-      settingDropdownRef.current.classList.toggle('nav-setting-list--dropdown');
+    NavbarImpl.onSettingClick({ settingDropdownRef });
   };
 
   return (
