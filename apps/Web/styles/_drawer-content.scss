@@ -1,20 +1,31 @@
+@use "variable" as *;
+
+$padding-outer: 1rem;
+
 .drawer-content-list {
-  padding: 1rem;
+  padding: 0;
   margin: 0;
   list-style: none;
 
-  &__item {
-    padding: .3rem;
-  }
-
   &__item-title {
     display: block;
-    margin-block-end: 1rem;
+    padding-inline-start: $padding-outer;
+    padding-block: $padding-outer;
+    border-bottom: $border-size solid $white-color;
+
+    &--not-first {
+      border-top: $border-size solid $white-color;
+    }
   }
 }
 
 .drawer-content-subcontent-list {
-  padding-inline-start: 1rem;
+  padding-block: $padding-outer;
+  padding-inline-start: $padding-outer * 2;
   margin: 0;
   list-style: none;
+
+  li {
+    padding: .5rem;
+  }
 }
