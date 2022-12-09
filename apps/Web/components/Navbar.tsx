@@ -1,10 +1,18 @@
 import Link from 'next/link';
+import { useRef } from 'react';
 
 interface NavbarProps {
   onMenuClick: () => void;
 }
 
 export default function Navbar(props: NavbarProps) {
+  const settingDropdownRef = useRef<HTMLUListElement>(null);
+
+  const onSettingClick = () => {
+    if (settingDropdownRef.current)
+      settingDropdownRef.current.classList.toggle('nav-setting-list--dropdown');
+  };
+
   return (
     <nav className="nav">
       <ul className="nav-list">
@@ -27,7 +35,10 @@ export default function Navbar(props: NavbarProps) {
           </button>
         </li>
         <li>
-          <button className="nav-link nav-setting-button">
+          <button
+            onClick={onSettingClick}
+            className="nav-link nav-setting-button"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -48,18 +59,20 @@ export default function Navbar(props: NavbarProps) {
               />
             </svg>
           </button>
-          <ul className="nav-setting-list">
-            <li className="nav-setting-item">
-              <Link className="nav-setting-link" href="#">
-                Feedback
-              </Link>
-            </li>
-            <li className="nav-setting-item">
-              <Link className="nav-setting-link" href="#">
-                Profile
-              </Link>
-            </li>
-          </ul>
+          <div className="nav-setting-container">
+            <ul className="nav-setting-list" ref={settingDropdownRef}>
+              <li className="nav-setting-item">
+                <Link className="nav-setting-link" href="#">
+                  Feedback
+                </Link>
+              </li>
+              <li className="nav-setting-item">
+                <Link className="nav-setting-link" href="#">
+                  Profile
+                </Link>
+              </li>
+            </ul>
+          </div>
         </li>
       </ul>
     </nav>

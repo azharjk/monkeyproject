@@ -30,8 +30,34 @@
   color: $white-color;
 }
 
+$hardcoded-left-value: -50px;
+$padding-item: 1rem;
+$padding-inline: 3rem;
+
 .nav-setting-list {
   display: none;
+  height: 100%;
+
+  &--dropdown {
+    position: absolute;
+    top: 0;
+    left: calc($hardcoded-left-value - $padding-item - $padding-inline - 2rem);
+    display: block;
+    height: auto;
+    padding-inline: $padding-inline;
+    padding-block: 1rem;
+    border-radius: $border-radius;
+    background-color: $nav-color;
+    list-style: none;
+
+    .nav-setting-item {
+      padding: $padding-item;
+    }
+  }
+}
+
+.nav-setting-container  {
+  position: relative;
   height: 100%;
 }
 
