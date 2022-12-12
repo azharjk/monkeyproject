@@ -28,6 +28,10 @@ $drawer-width: 240px;
   grid-template-columns: auto 1fr;
 }
 
+.drawer-app-container {
+  padding: 1rem;
+}
+
 @media (min-width: 602px) {
   .drawer-spacer {
     width: $drawer-width;

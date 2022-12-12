@@ -29,7 +29,7 @@ export default function DrawerWithNavbar(props: React.PropsWithChildren) {
             ref={drawerSpacerRef}
             className={`drawer-spacer ${DrawerSpacerStateCloseClassName}`}
           ></div>
-          <div>{props.children}</div>
+          <div className="drawer-app-container">{props.children}</div>
         </div>
       </div>
     </>

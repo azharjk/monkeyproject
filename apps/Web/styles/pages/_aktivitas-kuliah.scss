@@ -1,0 +1,76 @@
+@use '../variable' as *;
+
+$title-margin-block-end: 1rem;
+
+.ak-content-title {
+  margin: 0;
+  margin-block-end: $title-margin-block-end;
+  padding-block-end: 0.3rem;
+  border-bottom: $border-size solid $grayish-color;
+}
+
+.ak-info-semester {
+  padding: 1rem;
+  margin: 0;
+  margin-block-end: $title-margin-block-end;
+  border-radius: $border-radius;
+  text-align: center;
+  background-color: $primary-color;
+}
+
+$gap: 0.5rem;
+
+.ak-metadata,
+.ak-metadata-nested {
+  display: grid;
+  gap: $gap;
+}
+
+.ak-metadata-field {
+  display: grid;
+  grid-auto-flow: column;
+  place-content: center space-between;
+
+  &__select {
+    padding-block: 0.7rem;
+    padding-inline: 1rem;
+    border: $border-size solid $grayish-color;
+    border-radius: $border-radius;
+    background-color: transparent;
+    color: $black-color;
+  }
+}
+
+.ak-info-end {
+  display: none;
+}
+
+@media (min-width: 710px) {
+  .ak-metadata,
+  .ak-metadata-nested {
+    grid-auto-flow: column;
+    place-content: center space-between;
+    gap: 1rem;
+  }
+
+  .ak-info-start {
+    display: none;
+  }
+
+  .ak-info-end {
+    display: block;
+    margin: auto;
+
+    h4 {
+      margin: 0;
+    }
+  }
+
+  .ak-metadata-field {
+    grid-auto-flow: row;
+
+    &__label {
+      font-size: $small-text;
+    }
+  }
+}
