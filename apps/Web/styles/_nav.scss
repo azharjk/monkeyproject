@@ -59,6 +59,7 @@ $padding-inline: 3rem;
 .nav-setting-container  {
   position: relative;
   height: 100%;
+  z-index: 2;
 }
 
 .nav-setting-link {
