@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function DrawerContent() {
   return (
     <ul className="drawer-content-list">
@@ -7,7 +9,14 @@ export default function DrawerContent() {
           <li>Data mahasiswa</li>
           <li>Nilai semester</li>
           <li>Keuangan semester</li>
-          <li>Aktifitas kuliah</li>
+          <li>
+            <Link
+              className="drawer-content-link"
+              href="/inquiry/aktivitas-kuliah"
+            >
+              Aktivitas kuliah
+            </Link>
+          </li>
           <li>Kehadiran kuliah</li>
           <li>Hasil perwalian/BDATM</li>
           <li>Hasil KRS dan Tagihan awal</li>

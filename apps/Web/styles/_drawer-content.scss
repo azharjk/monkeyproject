@@ -29,3 +29,12 @@ $padding-outer: 1rem;
     padding: .5rem;
   }
 }
+
+.drawer-content-link {
+  text-decoration: none;
+  color: $white-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
