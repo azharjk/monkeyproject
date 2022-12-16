@@ -45,6 +45,34 @@ $gap: 0.5rem;
   display: none;
 }
 
+.ak-table-container {
+  margin-top: 1rem;
+  overflow-x: scroll;
+}
+
+.ak-table {
+  table-layout: auto;
+  width: 200vw;
+  border-collapse: collapse;
+
+  td, th {
+    border: $table-border-size solid $table-border-color;
+    text-align: center;
+  }
+}
+
+@media (min-width: 690px) {
+  .ak-table {
+    width: 150vw;
+  }
+}
+
+@media (min-width: 748px) {
+  .ak-table {
+    width: 100%;
+  }
+}
+
 @media (min-width: 710px) {
   .ak-metadata,
   .ak-metadata-nested {
