@@ -2,40 +2,40 @@ package com.github.azharjk.monkeyproject.api.login;
 
 import com.github.azharjk.monkeyproject.api.mahasiswa.Mahasiswa;
 import com.github.azharjk.monkeyproject.api.mahasiswa.MahasiswaRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.github.azharjk.monkeyproject.api.token.CannotInitializeTokenException;
+import com.github.azharjk.monkeyproject.api.token.TokenPair;
+import com.github.azharjk.monkeyproject.api.token.TokenService;
 
 public class LoginServiceImpl implements LoginService {
-    private static final Logger logger = LoggerFactory.getLogger(LoginServiceImpl.class);
-
     private final MahasiswaRepository mahasiswaRepository;
+    private final TokenService tokenService;
 
-    public LoginServiceImpl(MahasiswaRepository mahasiswaRepository) {
+    public LoginServiceImpl(MahasiswaRepository mahasiswaRepository, TokenService tokenService) {
         this.mahasiswaRepository = mahasiswaRepository;
+        this.tokenService = tokenService;
     }
     
-    private boolean attempt(LoginInput input) {
+    @Override
+    public LoginResponse login(LoginInput input) throws InvalidCredentialsException, CannotInitializeTokenException {
         Mahasiswa mahasiswa = mahasiswaRepository.findByNim(input.getNim());
         if (mahasiswa == null) {
-            return false;
+            throw new InvalidCredentialsException(input);
         }
         
         // FIXME: This pinCode should be hash first
         //        But the implementation right now
         //        is fine.
         String pinCode = mahasiswa.getPinCode();
-        return pinCode.equals(input.getPinCode());
-    }
-    
-    @Override
-    public String login(LoginInput input) throws InvalidCredentialsException {
-        if (!attempt(input)) {
-            logger.info("Failed attempt to login with credentials nim={} pinCode={}", input.getNim(), input.getPinCode());
+        if (!pinCode.equals(input.getPinCode())) {
             throw new InvalidCredentialsException(input);
         }
         
-        // FIXME: Return real token
-        return "HARDCODEDTOKENHEHE";
+        TokenPair pair = tokenService.generate(mahasiswa);
+        if (pair == null) {
+            throw new CannotInitializeTokenException();
+        }
+        
+        return new LoginResponse(pair.getAccessToken(), pair.getRefreshToken());
     }
     
 }

@@ -3,6 +3,11 @@ input LoginInput {
     pinCode: String!
 }
 
+type LoginResponse {
+    accessToken: String!
+    refreshToken: String!
+}
+
 extend type Query {
-    login(input: LoginInput!): String
+    login(input: LoginInput!): LoginResponse
 }

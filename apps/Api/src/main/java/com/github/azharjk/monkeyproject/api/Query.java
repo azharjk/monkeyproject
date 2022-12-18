@@ -1,6 +1,7 @@
 package com.github.azharjk.monkeyproject.api;
 
 import com.github.azharjk.monkeyproject.api.login.LoginInput;
+import com.github.azharjk.monkeyproject.api.login.LoginResponse;
 import com.github.azharjk.monkeyproject.api.login.LoginService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
@@ -25,7 +26,7 @@ public class Query {
     }
     
     @QueryMapping
-    public String login(@Valid @Argument LoginInput input) {        
+    public LoginResponse login(@Valid @Argument LoginInput input) {        
         logger.info("Attempt login with credentials nim={} pinCode={}", input.getNim(), input.getPinCode());   
         return loginService.login(input);
     }

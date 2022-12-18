@@ -1,5 +1,7 @@
 package com.github.azharjk.monkeyproject.api.login;
 
+import com.github.azharjk.monkeyproject.api.token.CannotInitializeTokenException;
+
 public interface LoginService {
-    String login(LoginInput input) throws InvalidCredentialsException;
+    LoginResponse login(LoginInput input) throws InvalidCredentialsException, CannotInitializeTokenException;
 }

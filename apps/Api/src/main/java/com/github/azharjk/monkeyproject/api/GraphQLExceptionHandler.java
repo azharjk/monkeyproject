@@ -1,6 +1,7 @@
 package com.github.azharjk.monkeyproject.api;
 
 import com.github.azharjk.monkeyproject.api.login.InvalidCredentialsException;
+import com.github.azharjk.monkeyproject.api.token.CannotInitializeTokenException;
 import graphql.GraphQLError;
 import graphql.GraphqlErrorBuilder;
 import graphql.schema.DataFetchingEnvironment;
@@ -23,6 +24,13 @@ public class GraphQLExceptionHandler extends DataFetcherExceptionResolverAdapter
         if (ex instanceof ConstraintViolationException) {
             return GraphqlErrorBuilder.newError(env)
                     .errorType(ErrorType.BAD_REQUEST)
+                    .message(ex.getMessage())
+                    .build();
+        }
+        
+        if (ex instanceof CannotInitializeTokenException) {
+            return GraphqlErrorBuilder.newError(env)
+                    .errorType(graphql.ErrorType.DataFetchingException)
                     .message(ex.getMessage())
                     .build();
         }
