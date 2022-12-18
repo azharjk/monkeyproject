@@ -1,0 +1,8 @@
+input LoginInput {
+    nim: String!
+    pinCode: String!
+}
+
+extend type Query {
+    login(input: LoginInput!): String
+}
