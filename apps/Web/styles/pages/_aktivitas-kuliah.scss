@@ -59,6 +59,17 @@ $gap: 0.5rem;
     border: $table-border-size solid $table-border-color;
     text-align: center;
   }
+
+  th {
+    padding-block: .5rem;
+    font-size: $small-text;
+    background-color: $table-header-color;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: $table-row-even-color;
+  }
 }
 
 @media (min-width: 690px) {
