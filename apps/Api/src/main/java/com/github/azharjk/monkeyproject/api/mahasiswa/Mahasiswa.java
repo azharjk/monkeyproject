@@ -24,6 +24,12 @@ public class Mahasiswa {
     public Mahasiswa() {
     }
 
+    public Mahasiswa(String name, String nim, String pinCode) {
+        this.name = name;
+        this.nim = nim;
+        this.pinCode = pinCode;
+    } 
+
     public Long getId() {
         return id;
     }
