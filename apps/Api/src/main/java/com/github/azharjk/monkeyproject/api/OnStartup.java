@@ -1,7 +1,7 @@
 package com.github.azharjk.monkeyproject.api;
 
-import com.github.azharjk.monkeyproject.api.AktivitasKuliah.AktivitasKuliah;
-import com.github.azharjk.monkeyproject.api.AktivitasKuliah.AktivitasKuliahRepository;
+import com.github.azharjk.monkeyproject.api.aktivitaskuliah.AktivitasKuliah;
+import com.github.azharjk.monkeyproject.api.aktivitaskuliah.AktivitasKuliahRepository;
 import com.github.azharjk.monkeyproject.api.mahasiswa.Mahasiswa;
 import com.github.azharjk.monkeyproject.api.mahasiswa.MahasiswaRepository;
 import com.github.azharjk.monkeyproject.api.matakuliah.MataKuliah;

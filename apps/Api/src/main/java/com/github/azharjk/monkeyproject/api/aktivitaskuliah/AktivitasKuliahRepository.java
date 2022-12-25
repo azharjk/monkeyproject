@@ -1,4 +1,4 @@
-package com.github.azharjk.monkeyproject.api.AktivitasKuliah;
+package com.github.azharjk.monkeyproject.api.aktivitaskuliah;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;

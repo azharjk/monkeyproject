@@ -1,4 +1,4 @@
-package com.github.azharjk.monkeyproject.api.AktivitasKuliah;
+package com.github.azharjk.monkeyproject.api.aktivitaskuliah;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

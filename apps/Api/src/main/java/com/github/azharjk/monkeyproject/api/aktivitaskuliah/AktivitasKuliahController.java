@@ -1,4 +1,4 @@
-package com.github.azharjk.monkeyproject.api.AktivitasKuliah;
+package com.github.azharjk.monkeyproject.api.aktivitaskuliah;
 
 import java.util.List;
 import org.springframework.security.oauth2.jwt.Jwt;

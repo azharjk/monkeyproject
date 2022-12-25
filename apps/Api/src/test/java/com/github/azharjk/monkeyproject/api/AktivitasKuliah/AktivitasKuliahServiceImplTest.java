@@ -1,5 +1,8 @@
 package com.github.azharjk.monkeyproject.api.AktivitasKuliah;
 
+import com.github.azharjk.monkeyproject.api.aktivitaskuliah.AktivitasKuliahRepository;
+import com.github.azharjk.monkeyproject.api.aktivitaskuliah.AktivitasKuliah;
+import com.github.azharjk.monkeyproject.api.aktivitaskuliah.AktivitasKuliahServiceImpl;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
