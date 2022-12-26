@@ -1,30 +1,50 @@
-export default function AktivitasKuliahTable() {
+import {
+  ColumnDef,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from '@tanstack/react-table';
+import { AktivitasKuliah } from '../logic/aktivitas-kuliah-impl';
+
+interface AktivitasKuliahTableProps {
+  data: AktivitasKuliah[];
+  columns: any[];
+}
+
+export default function AktivitasKuliahTable(props: AktivitasKuliahTableProps) {
+  const table = useReactTable({
+    data: props.data,
+    columns: props.columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
+
   return (
     <div className="ak-table-container">
       <table className="ak-table">
         <thead className="ak-thead">
-          <tr>
-            <th>Kode</th>
-            <th>Mata kuliah</th>
-            <th>SKS</th>
-            <th>Kelas</th>
-            <th>UTS</th>
-            <th>Hari</th>
-            <th>Jam</th>
-            <th>Status</th>
-          </tr>
+          {table.getHeaderGroups().map((headerGroup) => (
+            <tr key={headerGroup.id}>
+              {headerGroup.headers.map((header) => (
+                <th key={header.id}>
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                </th>
+              ))}
+            </tr>
+          ))}
         </thead>
         <tbody>
-          {Array.apply(null, Array(5)).map((_, i) => (
-            <tr key={i}>
-              <td>IFB-111</td>
-              <td>Matematika</td>
-              <td>3</td>
-              <td>DD</td>
-              <td>28</td>
-              <td>Senin</td>
-              <td>07:00 - 09:50</td>
-              <td>Terima</td>
+          {table.getRowModel().rows.map((row) => (
+            <tr key={row.id}>
+              {row.getVisibleCells().map((cell) => (
+                <td key={cell.id}>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </td>
+              ))}
             </tr>
           ))}
         </tbody>

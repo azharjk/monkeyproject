@@ -1,3 +1,4 @@
+import { createColumnHelper } from '@tanstack/react-table';
 import { ApiUrl } from '../meta/api-url';
 import { Query } from '../utils/query';
 
@@ -13,6 +14,27 @@ export interface AktivitasKuliah {
   time: string;
   mataKuliah: MataKuliah;
 }
+
+const columnHelper = createColumnHelper<AktivitasKuliah>();
+
+export const columns = [
+  columnHelper.accessor('id', {
+    cell: (info) => info.renderValue(),
+    header: () => 'ID',
+  }),
+  columnHelper.accessor('date', {
+    cell: (info) => info.renderValue(),
+    header: () => 'Date',
+  }),
+  columnHelper.accessor('time', {
+    cell: (info) => info.renderValue(),
+    header: () => 'Time',
+  }),
+  columnHelper.accessor('mataKuliah.name', {
+    cell: (info) => info.renderValue(),
+    header: () => 'Mata Kuliah',
+  }),
+];
 
 export const AktivitasKuliahImpl = {
   findAll: async () => {
