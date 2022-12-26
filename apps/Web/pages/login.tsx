@@ -2,8 +2,31 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import Project from '../meta/project';
+import { FormEvent, useState } from 'react';
+import { LoginImpl } from '../logic/login-impl';
 
 export default function LoginPage() {
+  const [nim, setNim] = useState('');
+  const [pinCode, setPinCode] = useState('');
+
+  const onLoginSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    const credentials = {
+      nim,
+      pinCode,
+    };
+
+    if (!LoginImpl.validateCredentials(credentials)) {
+      alert('Invalid credentials format');
+      return;
+    }
+
+    const accessRefreshToken = await LoginImpl.login(credentials);
+
+    // TODO: Save the access token and refresh token to localStorage
+  };
+
   return (
     <>
       <Head>
@@ -21,7 +44,10 @@ export default function LoginPage() {
           </div>
           <div>
             <h2 className="login-group-title">Portal Mahasiswa</h2>
-            <form className="login-form-container">
+            <form
+              className="login-form-container"
+              onSubmit={(e) => onLoginSubmit(e)}
+            >
               <div className="login-form-field">
                 <label className="login-form-field__label" htmlFor="nim">
                   NIM
@@ -30,6 +56,8 @@ export default function LoginPage() {
                   className="login-form-field__input"
                   type="text"
                   id="nim"
+                  value={nim}
+                  onChange={(e) => setNim(e.target.value)}
                 />
               </div>
               <div className="login-form-field">
@@ -40,6 +68,8 @@ export default function LoginPage() {
                   className="login-form-field__input"
                   type="text"
                   id="pin-code"
+                  value={pinCode}
+                  onChange={(e) => setPinCode(e.target.value)}
                 />
               </div>
               <div className="login-helper-container">
