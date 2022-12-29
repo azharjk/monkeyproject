@@ -24,7 +24,7 @@ export default function LoginPage() {
 
     const accessRefreshToken = await LoginImpl.login(credentials);
 
-    // TODO: Save the access token and refresh token to localStorage
+    // TODO: Save the access token and refresh token to localStorae
   };
 
   return (
