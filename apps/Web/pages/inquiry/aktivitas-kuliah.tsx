@@ -34,7 +34,7 @@ export default function AktivitasKuliahPage(props: AktivitasKuliahPageProps) {
       </Head>
       <DrawerWithNavbar>
         <div>
-          <h2 className="ak-content-title">Aktivitas kuliah</h2>
+          <h2 className="content-title-text">Aktivitas kuliah</h2>
           <AktivitasKuliahMetadata />
           <AktivitasKuliahTable
             data={props.aktivitasKuliah}

@@ -6,7 +6,14 @@ export default function DrawerContent() {
       <li className="drawer-content-list__item">
         <span className="bold drawer-content-list__item-title">Inquiry</span>
         <ul className="drawer-content-subcontent-list">
-          <li>Data mahasiswa</li>
+          <li>
+            <Link
+              className="drawer-content-link"
+              href="/inquiry/data-mahasiswa"
+            >
+              Data mahasiswa
+            </Link>
+          </li>
           <li>Nilai semester</li>
           <li>Keuangan semester</li>
           <li>

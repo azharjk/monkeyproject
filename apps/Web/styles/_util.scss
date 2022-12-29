@@ -1,3 +1,12 @@
+@use "variable" as *;
+
 .bold {
   font-weight: 500;
+}
+
+.content-title-text {
+  margin: 0;
+  margin-block-end: $title-margin-block-end;
+  padding-block-end: 0.3rem;
+  border-bottom: $border-size solid $grayish-color;
 }

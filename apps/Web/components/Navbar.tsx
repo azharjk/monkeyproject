@@ -67,7 +67,10 @@ export default function Navbar(props: NavbarProps) {
                 </Link>
               </li>
               <li className="nav-setting-item">
-                <Link className="nav-setting-link" href="#">
+                <Link
+                  className="nav-setting-link"
+                  href="/inquiry/data-mahasiswa"
+                >
                   Profile
                 </Link>
               </li>

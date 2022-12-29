@@ -1,14 +1,5 @@
 @use '../variable' as *;
 
-$title-margin-block-end: 1rem;
-
-.ak-content-title {
-  margin: 0;
-  margin-block-end: $title-margin-block-end;
-  padding-block-end: 0.3rem;
-  border-bottom: $border-size solid $grayish-color;
-}
-
 .ak-info-semester {
   padding: 1rem;
   margin: 0;
