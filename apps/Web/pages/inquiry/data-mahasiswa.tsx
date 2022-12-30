@@ -1,8 +1,26 @@
 import Head from 'next/head';
 import Project from '../../meta/project';
 import DrawerWithNavbar from '../../components/DrawerWithNavbar';
+import { GetServerSideProps } from 'next';
+import { DataMahasiswaImpl, Mahasiswa } from '../../logic/data-mahasiswa-impl';
 
-export default function DataMahasiswaPage() {
+interface DataMahasiswaProps {
+  mahasiswa: Mahasiswa;
+}
+
+export const getServerSideProps: GetServerSideProps<
+  DataMahasiswaProps
+> = async (context) => {
+  const mahasiswa = await DataMahasiswaImpl.findDetail();
+
+  return {
+    props: {
+      mahasiswa,
+    },
+  };
+};
+
+export default function DataMahasiswaPage(props: DataMahasiswaProps) {
   return (
     <>
       <Head>
@@ -14,11 +32,11 @@ export default function DataMahasiswaPage() {
           <div>
             <div>
               <span className="bold">NIM: </span>
-              <span>152022170</span>
+              <span>{props.mahasiswa.nim}</span>
             </div>
             <div>
               <span className="bold">Nama: </span>
-              <span>John Doe</span>
+              <span>{props.mahasiswa.name}</span>
             </div>
           </div>
         </div>
